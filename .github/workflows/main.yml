@@ -1,1 +1,18 @@
-name:%20Python%20UI%20Tests%20%23%20%D0%9D%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B2%D0%B0%D1%88%D0%B5%D0%B3%D0%BE%20%D0%BF%D0%B0%D0%B9%D0%BF%D0%BB%D0%B0%D0%B9%D0%BD%D0%B0%0Aon:%20%5Bpush%5D%20%23%20%D0%A2%D1%80%D0%B8%D0%B3%D0%B3%D0%B5%D1%80:%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%B8%20%D0%BB%D1%8E%D0%B1%D0%BE%D0%BC%20%D0%BF%D1%83%D1%88%D0%B5%206%20%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B9%0Ajobs:%0Atest:%0Aruns-on:%20ubuntu-latest%20%23%20%D0%97%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D0%BD%D0%B5%D0%B9%20Ubuntu%0Asteps:%0A%23%20%D0%A8%D0%B0%D0%B3%201:%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%BA%D0%BE%D0%B4%20%D0%B8%D0%B7%20%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F%0A-%20name:%20Checkout%20code%0Auses:%20actions/checkout@v3%0A%23%20%D0%A8%D0%B0%D0%B3%202:%20%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20Python%0A-%20name:%20Set%20up%20Python%0Auses:%20actions/setup-python@v4%20with:%0Apython-version:%20'3.10'%0A%23%20%D0%A8%D0%B0%D0%B3%203:%20%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8%0A-%20name:%20Install%20dependencies%20run:%0Apip%20install%20-r%20requirements.txt%0A%23%20%D0%A8%D0%B0%D0%B3%204:%20%D0%97%D0%B0%D0%BF%D1%83%D1%81%D1%82%D0%B8%D1%82%D1%8C%20%D1%82%D0%B5%D1%81%D1%82%D1%8B%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20pytest%0A-%20name:%20Run%20tests%20run:%0Apytest%20-v
+name: Python UI Tests
+on: [push]
+jobs:
+  test:
+   runs-on: ubuntu-latest
+   steps
+   - name: Checkout code
+   users: actions/checkout@v3
+   - name: set up python
+   users: actions/setup-python@v4
+   with:
+    python-version: '3.10'
+  - name: Install dependencies
+  run: |
+    pip install -r requirements.txt
+  - name: Run tests
+    run: |
+     pytest -v
